@@ -15,7 +15,7 @@ return (
         <div className="content-container">
         <h1 className="page-header__title">Viewing <span>{memberCount} {memberWord}</span> totalling <span>{formattedMembersTotal}</span></h1>
     <div className="page-header__actions">
-        <Link className="_button" to="/create">Add Member</Link>
+        <Link className="button" to="/create">Add Member</Link>
     </div>
     </div>
     </div>

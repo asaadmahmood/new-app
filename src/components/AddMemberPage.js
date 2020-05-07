@@ -11,17 +11,17 @@ export class AddMemberPage extends React.Component {
   };
   render() {
     return (
-     <div>
-<div className="page-header">
+      <div>
+        <div className="page-header">
           <div className="content-container">
-          <h1 className="page-header__title">Add Member</h1>
-              
-            </div>
-     </div>
-        
-        
+            <h1 className="page-header__title">Add Member</h1>
+
+          </div>
+        </div>
+
+
         <MemberForm
-          onSubmit={this.onSubmit}
+           onSubmit={this.onSubmit}
         />
       </div>
     );

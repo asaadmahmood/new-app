@@ -7,7 +7,7 @@ import uuid from 'uuid';
 name = '',
 age= '',
 sex = '',
-package = '',
+packege = '',
 address = '',
 createdAt= 0
 
@@ -19,7 +19,7 @@ member: {
     name,
     age,
     sex,
-    package,
+    packege,
     address,
     createdAt
 

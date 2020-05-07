@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import MemberForm from './MemberForm';
 import { startEditMember } from '../actions/members';
@@ -10,7 +10,7 @@ export class EditMemberPage extends React.Component {
         this.props.history.push('/');
     };
     onRemove = () => {
-        this.props.startRemoveMember({ id: this.props.member.id });
+        this.props.startRemoveMember({ id: this.props.member .id});
         this.props.history.push('/');
     };
     render() {
@@ -39,7 +39,7 @@ const mapStateToProps = (state, props) => ({
     member: state.members.find((member) => member.id === props.match.params.id)
 });
 
-const mapDispatchToProps = (dispath, props) => ({
+const mapDispatchToProps = (dispatch, props) => ({
     startEditMember: (id, member) => dispatch(startEditMember(id, member)),
     startRemoveMember: (data) => dispatch(startRemoveMember(data))
 });
