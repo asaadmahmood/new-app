@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
+import { startSetMembers } from './actions/members';
 import { login, logout } from './actions/auth';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
@@ -29,6 +30,12 @@ ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     store.dispatch(login(user.uid));
+    store.dispatch(startSetMembers()).then(() => {
+      renderApp();
+      if (history.location.pathname === '/') {
+        history.push('/dashboard')
+      }
+    });
     renderApp();
     if (history.location.pathname === '/') {
       history.push('/dashboard');

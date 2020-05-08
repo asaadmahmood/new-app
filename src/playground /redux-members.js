@@ -42,23 +42,23 @@ member: {
     type: 'SET_TEXT_FILTER',
     text
   });
-  
+
   // SORT_BY_DATE
   const sortByDate = () => ({
     type: 'SORT_BY_DATE'
   });
-  
+
   // SORT_BY_AMOUNT
   const sortByAmount = () => ({
     type: 'SORT_BY_AMOUNT'
   });
-  
+
   // SET_START_DATE
   const setStartDate = (startDate) => ({
     type: 'SET_START_DATE',
     startDate
   });
-  
+
   // SET_END_DATE
   const setEndDate = (endDate) => ({
     type: 'SET_END_DATE',
@@ -102,7 +102,7 @@ const filtersReducerDefaultState = {
     startDate: undefined,
     endDate: undefined
   };
-  
+
   const filtersReducer = (state = filtersReducerDefaultState, action) => {
     switch (action.type) {
       case 'SET_TEXT_FILTER':
@@ -140,7 +140,7 @@ const getVisibleMembers = (members, { text, sortBy, startDate, endDate }) => {
       const MtartDateMatch = typeof startDate !== 'number' || member.createdAt >= startDate;
       const endDateMatch = typeof endDate !== 'number' || member.createdAt <= endDate;
       const textMatch = member.description.toLowerCase().includes(text.toLowerCase());
-  
+
       return startDateMatch && endDateMatch && textMatch;
     }).sort((a, b) => {
       if (sortBy === 'date') {
@@ -154,10 +154,10 @@ const getVisibleMembers = (members, { text, sortBy, startDate, endDate }) => {
 
 const store = createStore(
     combineReducers({
-      mambers: mambersReducer,
+      members: mambersReducer,
       filters: filtersReducer
     })
   );
 
 
-  
+
