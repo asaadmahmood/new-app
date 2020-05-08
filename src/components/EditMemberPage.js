@@ -10,7 +10,7 @@ export class EditMemberPage extends React.Component {
         this.props.history.push('/');
     };
     onRemove = () => {
-        this.props.startRemoveMember({ id: this.props.member .id});
+        this.props.startRemoveMember({ id:this.props.member .id});
         this.props.history.push('/');
     };
     render() {
