@@ -1,6 +1,7 @@
 import uuid from 'uuid';
 import database from '../firebase/firebase';
 
+
 export const addMember = (member) => ({
   type: 'ADD_MEMBER',
   member
@@ -69,13 +70,13 @@ export const startSetMembers = () => {
       .once('value')
       .then((snapshot) => {
         const members = [];
-
         snapshot.forEach((childSnapshot) => {
           members.push({
             id: childSnapshot.key,
             ...childSnapshot.val()
           });
         });
+
         dispatch(setMembers(members));
       });
   };

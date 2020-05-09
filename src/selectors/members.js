@@ -1,13 +1,13 @@
 
 import moment from 'moment';
-export default (members, { name, sortBy, startDate, endDate }) => {
+export default (members, { text, sortBy, startDate, endDate }) => {
   return members.filter((member) => {
     const createdAtMoment = moment (member.createdAt);
     const startDateMatch = startDate ? startDate.isSameOrBefore(createdAtMoment, 'day') : true ;
     const endDateMatch = endDate ? endDate.isSameOrAfter(createdAtMoment, 'day') : true ;
-    const textMatch = member.name.toLowerCase().includes(name.toLowerCase());
+    const nameMatch = member.name.toLowerCase().includes(name.toLowerCase());
 
-    return startDateMatch && endDateMatch && textMatch;
+    return startDateMatch && endDateMatch && nameMatch;
   }).sort((a, b) => {
     if (sortBy === 'date') {
       return a.createdAt < b.createdAt ? 1 : -1;

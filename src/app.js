@@ -5,13 +5,17 @@ import AppRouter, { history } from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { startSetMembers } from './actions/members';
 import { login, logout } from './actions/auth';
+import getVisibleExpenses from './selectors/members';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import { firebase } from './firebase/firebase';
 import LoadingPage from './components/LoadingPage';
+import members from './selectors/members';
 
 const store = configureStore();
+
+
 const jsx = (
   <Provider store={store}>
     <AppRouter />
@@ -38,7 +42,7 @@ firebase.auth().onAuthStateChanged((user) => {
     });
     renderApp();
     if (history.location.pathname === '/') {
-      history.push('/dashboard');
+      history.push('/dashboard')
     }
   } else {
     store.dispatch(logout());

@@ -3,14 +3,17 @@ import { connect } from 'react-redux';
 import MemberListItem from './MemberListItem';
 import selectMembers from '../selectors/members';
 
-export class MemberList extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props);
-  }
+// export class MemberList extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     console.log(this.props);
+//   }
+export const MemberList = (props) => (
 
-  render() {
-    return (
+
+
+  // render() {
+  //   return (
       <div className="content-container">
         <div className="list-header">
           <div className="show-for-mobile">Members</div>
@@ -18,9 +21,9 @@ export class MemberList extends React.Component {
           <div className="show-for-desktop">Packege</div>
         </div>
         <div className="list-body">
-          {this.props.members}
+          {/* {props.members} */}
           {
-            this.props.members.length === 0 ? (
+            props.members.length === 0 ? (
               <div className="list-item list-item--message">
                 <span>No member</span>
               </div>
@@ -32,14 +35,14 @@ export class MemberList extends React.Component {
           }
         </div>
       </div>
-    )
-  }
-}
+    );
+  // }
+// }
 
 const mapStateToProps = (state) => {
   return {
-    // members: selectMembers(state.members, state.filters)
-    members: state.members
+    members: selectMembers(state.members, state.filters),
+    // members: state.members
   };
 };
 
