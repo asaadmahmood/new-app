@@ -6,14 +6,14 @@ import { DateRangePicker } from 'react-dates';
 
 export class MemberListFilters extends React.Component {
   state = {
-    calanderFocused: null
+    calenderFocused: null
   };
-  onDateChange = ({ stratDate, endDate }) => {
+  onDatesChange = ({ startDate, endDate }) => {
     this.props.setStartDate(startDate);
     this.props.setEndDate(endDate);
   };
   onFocusChange = (calenderFocused) => {
-    this.setState(() => ({ calanderFocused }));
+    this.setState(() => ({ calenderFocused }));
   };
   onTextChange = (e) => {
     props.settextFilter(e.target.value);
@@ -47,6 +47,16 @@ export class MemberListFilters extends React.Component {
             </select>
           </div>
           <div className="input-group__item">
+          <DateRangePicker
+      startDate={this.props.filters.startDate}
+      endDate={this.props.filters.endDate}
+      onDatesChange={this.onDatesChange}
+      focusedInput= {this.state.calenderFocused}
+      onFocusChange= {this.onFocusChange}
+      showClearDates= {true}
+      numberOfMonths={1}
+      isOutsideRange= {()=> false}
+    />
           </div>
         </div>
       </div>
