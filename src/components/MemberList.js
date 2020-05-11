@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import MemberListItem   from './MemberListItem';
 import selectMembers from '../selectors/members';
@@ -8,9 +8,7 @@ import selectMembers from '../selectors/members';
 //     super(props);
 //     console.log(this.props);
 //   }
-export const MemberList = (props) => (
-
-
+const MemberList = (props) => (
 
   // render() {
   //   return (
@@ -28,23 +26,26 @@ export const MemberList = (props) => (
                 <span>No member</span>
               </div>
             ) : (
-                props.members.toString(()=>{
-                  props.members.map((member) => { 
+              // props.members.toString(()=> {
+                // return  Arrays.props.mebres.toString(()=>{
+                  props.members.map((member) => {
                     return <MemberListItem key={member.id} {...member} />;
-                  });
-                })
-                )  
-              }
+                  })
+                // })
+            )
+                  // })
+            
+                  }
         </div>
       </div>
     );
-// }
-// }
-
+    // )}
+              //  }
+              
 const mapStateToProps = (state) => {
   return {
     members: selectMembers(state.members, state.filters),
-    // members: state.members
+    members: state.members
   };
 };
 
